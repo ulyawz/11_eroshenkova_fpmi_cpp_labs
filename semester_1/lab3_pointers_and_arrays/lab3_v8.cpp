@@ -9,7 +9,7 @@ std::cin >> n;
 if (n <= 0 || n > maximum) {
 	std::cout << "размер массива должен быть от 1 до " << maximum;
 }
-int mas[maximum];
+ double mas[maximum];
 int choice;
 std::cout << "Как заполнять массив:\n" << "1) с клавиатуры\n" << "2) рандомно\n";
 std::cin >> choice;
@@ -20,7 +20,7 @@ if (choice == 1) {
 	}
 }
 else if (choice == 2) {
-	int a, b;
+	double a, b;
 	std::cout << "Введите границы интервала: ";
 std::cin >> a >> b;
 std::random_device rd;
@@ -36,9 +36,11 @@ std::cout << "\n";
 else {
 	std::cout << "Введите 1 или 2\n";
 }
-int summa = 0;
+double summa = 0;
 for (int i = 0; i < n; i++) {
-	if (mas[i] > 0) summa += mas[i];
+	if (mas[i] > 0) {
+		summa += mas[i];
+	}
 } 
 std::cout << "Сумма положительных элементов: " << summa<< "\n";
 int elmax = 0;
@@ -58,11 +60,9 @@ else {
 	std::cout << "Произведение элементов между первым максимальным и последним минимальным: " << pr << "\n";
 }
 for (int i = 1; i < n; i += 2) {
-	for (int j = i + 2; j < n; j += 2) {
-		if (mas[i] < mas[j]) {
-			int x = mas[i];
-			mas[i] = mas[j];
-			mas[j] = x;
+	for (int j = i; j < n-i-1; j += 2) {
+		if (j + 2 < n && mas[j] < mas[j + 2]) {
+			std::swap(mas[j], mas[j + 2]);
 		}
 	}
 }
