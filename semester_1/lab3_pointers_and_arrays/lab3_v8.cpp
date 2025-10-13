@@ -1,5 +1,6 @@
 #include <iostream>;
 #include <random>;
+#include <cmath>;
 int main() {
 	setlocale(LC_ALL, "RU");
 	int n;
@@ -46,22 +47,22 @@ std::cout << "Сумма положительных элементов: " << summa<< "\n";
 int elmax = 0;
 int elmin = 0;
 for (int i = 1; i < n; i++) {
-	if (mas[i] > mas[elmax]) elmax = i;
-	if (mas[i] <= mas[elmin]) elmin = i;
+	if (std::abs(mas[i]) > std::abs(mas[elmax])) elmax = i;
+	if (std::abs(mas[i]) <= std::abs(mas[elmin])) elmin = i;
 }
 if (std::max(elmax, elmin) - std::min(elmax, elmin) == 1) {
 	std::cout << "Между максимальным и минимальным элементом нет элементов\n";
 }
 else {
-	int pr = 1;
+	double pr = 1;
 	for (int i = std::min(elmax, elmin) + 1; i < std::max(elmax, elmin); i++) {
 		pr *= mas[i];
 	}
 	std::cout << "Произведение элементов между первым максимальным и последним минимальным: " << pr << "\n";
 }
 for (int i = 1; i < n; i += 2) {
-	for (int j = i; j < n-i-1; j += 2) {
-		if (j + 2 < n && mas[j] < mas[j + 2]) {
+	for (int j = i; j+2<n; j += 2) {
+		if ( mas[j] < mas[j + 2]) {
 			std::swap(mas[j], mas[j + 2]);
 		}
 	}
