@@ -4,13 +4,13 @@
 int main() {
 	setlocale(LC_ALL, "RU");
 	int n;
-	const int maximum = 1000;
+	const int MAXIMUM = 1000;
 std::cout << "¬ведите колличество элементов массива: ";
 std::cin >> n;
-if (n <= 0 || n > maximum) {
-	std::cout << "размер массива должен быть от 1 до " << maximum;
+if (n <= 0 || n > MAXIMUM) {
+	std::cout << "размер массива должен быть от 1 до " << MAXIMUM;
 }
- double mas[maximum];
+ double mas[MAXIMUM];
 int choice;
 std::cout << " ак заполн€ть массив:\n" << "1) с клавиатуры\n" << "2) рандомно\n";
 std::cin >> choice;
