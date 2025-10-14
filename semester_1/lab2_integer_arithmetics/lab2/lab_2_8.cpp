@@ -4,14 +4,13 @@ int main() {
 	int a, b;
 	std::cout << "¬ведите значени€ a и b: ";
 	std::cin >> a >> b;
-	for (int x = a; x <= b; x++) {
-		if (x > 1) {
-			int c;
-			for (c = 2; c < x && x % c != 0; c++);
-				if (c == x) 
-					std::cout << x << " ";
+	for (int divisible = a; divisible <= b; divisible++) {
+		if (divisible > 1) {
+			int divider;
+			for (divider = 2; divider < divisible && divisible % divider != 0; divider++);
+				if (divider == divisible) 
+					std::cout << divisible << " ";
 		}
-		
 
 	}
 }
