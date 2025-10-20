@@ -1,6 +1,7 @@
-#include <iostream>;
-#include <random>;
-#include <cmath>;
+#include <iostream>
+#include <random>
+#include <cmath>
+#include <algorithm>
 int main() {
 	setlocale(LC_ALL, "RU");
 	int n;
@@ -40,7 +41,7 @@ else {
 double summa = 0;
 for (int i = 0; i < n; i++) {
 	if (arr[i] > 0) {
-		summa += mas[i];
+		summa += arr[i];
 	}
 } 
 std::cout << "Сумма положительных элементов: " << summa<< "\n";
@@ -61,7 +62,7 @@ else {
 	std::cout << "Произведение элементов между первым максимальным и последним минимальным: " << pr << "\n";
 }
 for (int i = 1; i < n; i += 2) {
-	for (int j = i; j+2<n; j += 2) {
+	for (int j = i; j<n-i-1; j += 2) {
 		if ( arr[j] < arr[j + 2]) {
 			std::swap(arr[j], arr[j + 2]);
 		}
