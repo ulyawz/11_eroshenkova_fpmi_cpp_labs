@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstdlib>
-#include <ctime>>
+#include <ctime>
 int** CreateMatrix(int rows, int columns) {
     int** matrix = new int* [rows];
     for (int i = 0; i < rows; i++) {
@@ -28,7 +28,7 @@ int ColumnsWithoutFirst(int** matrix, int rows, int columns) {
     int count = 0;
     for (int j = 0; j < columns; j++) {
         int found = 0;
-        for (int i = 0; i < rows && found == 0; i++) {
+        for (int i = 0; i < rows; i++) {
             if (matrix[i][j] == first) {
                 found = 1;
             }
@@ -81,7 +81,7 @@ int main()
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++) {
-                std::cout << "enter the element number" << (i + 1) << " ";
+                std::cout << "Enter element [" << (i + 1) << "," << (j + 1) << "]: ";
                 std::cin >> matrix[i][j];
             }
         }
