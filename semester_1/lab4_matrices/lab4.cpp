@@ -116,7 +116,6 @@ int main()
                     std::cin >> matrix[i][j];
                 }
             }
-            PrintMatrix(matrix, rows, columns);
         }
         else if (choice == 2)
         {
@@ -140,15 +139,12 @@ int main()
                     matrix[i][j] = lower_board + rand() % (upper_board - lower_board + 1);
                 }
             }
-            PrintMatrix(matrix, rows, columns);
         }
         else
         {
-            std::cout << "ONLY 1 OR 2";
-            DeleteMatrix(matrix, rows);
-            return 0;
+            throw "Invalid choice (enter 1  or 2)";
         }
-
+        PrintMatrix(matrix, rows, columns);
         std::cout << "The element of the first column and the first row: " << matrix[0][0] << std::endl;
         int count = ColumnsWithoutFirst(matrix, rows, columns);
         std::cout << "Number of columns without " << matrix[0][0] << ": " << count << std::endl;
